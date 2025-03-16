@@ -8,7 +8,7 @@
  */
 const prizes = [
   {
-    type: 1,
+    type: 0,
     count: 100,
     text: "Eden",
     title: "惊喜抽奖",
@@ -24,7 +24,7 @@ const EACH_COUNT = [1];
 /**
  * 卡片公司名称标识
  */
-const COMPANY = "MoShang";
+const COMPANY = "";
 
 module.exports = {
   prizes,
