@@ -9,16 +9,23 @@
 const prizes = [
   {
     type: 0,
-    count: 1000,
-    title: "",
-    text: "Eden惊喜抽奖"
+    count: 0,
+    title: "今日抽奖",
+    text: "惊喜抽奖"
+  },
+  {
+    type: 1,
+    count: 1,
+    title: "今日抽奖",
+    text: "惊喜抽奖",
+    img: "../img/secrit.jpg"
   }
 ];
 
 /**
  * 一次抽取的奖品个数与prizes对应
  */
-const EACH_COUNT = [1];
+const EACH_COUNT = [0, 1];
 
 /**
  * 卡片公司名称标识
