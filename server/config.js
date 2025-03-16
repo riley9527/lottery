@@ -9,10 +9,9 @@
 const prizes = [
   {
     type: 0,
-    count: 100,
-    text: "Eden",
-    title: "惊喜抽奖",
-    img: "../img/secrit.jpg"
+    count: 1000,
+    title: "",
+    text: "Eden惊喜抽奖"
   }
 ];
 
