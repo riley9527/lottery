@@ -650,7 +650,7 @@ function lottery() {
       }
     }
 
-    // console.log(currentLuckys);
+    console.log(currentLuckys);
     selectCard();
   });
 }
