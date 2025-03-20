@@ -633,24 +633,33 @@ function lottery() {
       leftCount = basicData.leftUsers.length;
     }
 
+    let removeUsers = [
+      [1, "架子鼓"], 
+      [2, "向太空出发"],
+    ];
+
     for (let i = 0; i < perCount; i++) {
       let luckyId = random(leftCount);
-      let removeUsers = [
-        [1, "架子鼓"], 
-        [2, "向太空出发"],
-      ]
+      
       console.log("111111 %o", basicData.leftUsers);
-      let newUsers = basicData.leftUsers.filter(item => 
-        !removeUsers.some(target => 
-            JSON.stringify(item) == JSON.stringify(target)
+
+      // 直接清空并替换原数组内容
+      basicData.leftUsers.splice(
+        0, 
+        basicData.leftUsers.length, 
+        ...basicData.leftUsers.filter(item => 
+          !removeUsers.some(target => 
+            item[0] === target[0] && item[1] === target[1]
           )
-        );
-      console.log("22222222 %o", newUsers);
-      let xxx = newUsers.splice(luckyId, 1)[0];
+        )
+      );
+
+      console.log("22222222 %o", basicData.leftUsers);
+      let xxx = basicData.leftUsers.splice(luckyId, 1)[0];
       
       // 特殊抽奖
       // xxx = [1, "架子鼓"];
-      
+
       // console.log("============ %o", xxx);
       currentLuckys.push(xxx);
 
