@@ -104,27 +104,7 @@ function initAll() {
   window.AJAX({
     url: "/getUsers",
     success(data) {
-      // 删除已抽到的奖品
-      let removeUsers = [
-        [1, "架子鼓"], 
-        [7, "魔法水晶"],
-      ];
-
-      // 直接清空并替换原数组内容
-      data.splice(
-        0, 
-        data.length, 
-        ...data.filter(item => 
-          !removeUsers.some(target => 
-            item[0] === target[0] && item[1] === target[1]
-          )
-        )
-      );
-
       basicData.users = data;
-
-      console.log("xxxxxxxx %o", basicData.users);
-
       initCards();
       // startMaoPao();
       animate();
@@ -638,6 +618,23 @@ function lottery() {
   // }
   btns.lottery.innerHTML = "结束抽奖";
   rotateBall().then(() => {
+    // 删除已抽到的奖品
+    let removeUsers = [
+      [1, "架子鼓"], 
+      [7, "魔法水晶"],
+    ];
+
+    // 直接清空并替换原数组内容
+    basicData.leftUsers.splice(
+      0, 
+      basicData.leftUsers.length, 
+      ...basicData.leftUsers.filter(item => 
+        !removeUsers.some(target => 
+          item[0] === target[0] && item[1] === target[1]
+        )
+      )
+    );
+
     // 将之前的记录置空
     currentLuckys = [];
     selectedCardIndex = [];
