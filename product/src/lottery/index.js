@@ -76,8 +76,25 @@ function initAll() {
 
       TOTAL_CARDS = ROW_COUNT * COLUMN_COUNT;
 
+      let removeUsers = [
+        [1, "架子鼓"], 
+        [2, "向太空出发"],
+      ];
+
+      // 直接清空并替换原数组内容
+      data.leftUsers.splice(
+        0, 
+        data.leftUsers.length, 
+        ...data.leftUsers.filter(item => 
+          !removeUsers.some(target => 
+            item[0] === target[0] && item[1] === target[1]
+          )
+        )
+      );
+
       // 读取当前已设置的抽奖结果
       basicData.leftUsers = data.leftUsers;
+
       basicData.luckyUsers = data.luckyData;
 
       let prizeIndex = basicData.prizes.length - 1;
@@ -633,28 +650,11 @@ function lottery() {
       leftCount = basicData.leftUsers.length;
     }
 
-    let removeUsers = [
-      [1, "架子鼓"], 
-      [2, "向太空出发"],
-    ];
-
     for (let i = 0; i < perCount; i++) {
       let luckyId = random(leftCount);
       
       console.log("111111 %o", basicData.leftUsers);
 
-      // 直接清空并替换原数组内容
-      basicData.leftUsers.splice(
-        0, 
-        basicData.leftUsers.length, 
-        ...basicData.leftUsers.filter(item => 
-          !removeUsers.some(target => 
-            item[0] === target[0] && item[1] === target[1]
-          )
-        )
-      );
-
-      console.log("22222222 %o", basicData.leftUsers);
       let xxx = basicData.leftUsers.splice(luckyId, 1)[0];
       
       // 特殊抽奖
