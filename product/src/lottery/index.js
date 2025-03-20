@@ -635,11 +635,26 @@ function lottery() {
 
     for (let i = 0; i < perCount; i++) {
       let luckyId = random(leftCount);
-      console.log("---------- %o", luckyId);
-      let xxx = basicData.leftUsers.splice(luckyId, 1)[0];
-      console.log("============ %o", xxx)
-
+      let removeUsers = [
+        [1, "架子鼓"], 
+        [2, "向太空出发"],
+      ]
+      console.log("111111 %o", basicData.leftUsers);
+      let newUsers = basicData.leftUsers.filter(item => 
+        !removeUsers.some(target => 
+            JSON.stringify(item) == JSON.stringify(target)
+          )
+        );
+      console.log("22222222 %o", newUsers);
+      let xxx = newUsers.splice(luckyId, 1)[0];
+      
+      // 特殊抽奖
+      // xxx = [1, "架子鼓"];
+      
+      // console.log("============ %o", xxx);
       currentLuckys.push(xxx);
+
+      
       leftCount--;
       leftPrizeCount--;
 
