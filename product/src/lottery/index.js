@@ -76,22 +76,6 @@ function initAll() {
 
       TOTAL_CARDS = ROW_COUNT * COLUMN_COUNT;
 
-      // let removeUsers = [
-      //   [1, "架子鼓"], 
-      //   [2, "向太空出发"],
-      // ];
-
-      // // 直接清空并替换原数组内容
-      // data.leftUsers.splice(
-      //   0, 
-      //   data.leftUsers.length, 
-      //   ...data.leftUsers.filter(item => 
-      //     !removeUsers.some(target => 
-      //       item[0] === target[0] && item[1] === target[1]
-      //     )
-      //   )
-      // );
-
       // 读取当前已设置的抽奖结果
       basicData.leftUsers = data.leftUsers;
 
@@ -120,6 +104,23 @@ function initAll() {
   window.AJAX({
     url: "/getUsers",
     success(data) {
+      // 删除已抽到的奖品
+      let removeUsers = [
+        [1, "架子鼓"], 
+        [2, "向太空出发"],
+      ];
+
+      // 直接清空并替换原数组内容
+      data.splice(
+        0, 
+        data.length, 
+        ...data.filter(item => 
+          !removeUsers.some(target => 
+            item[0] === target[0] && item[1] === target[1]
+          )
+        )
+      );
+
       basicData.users = data;
 
       console.log("xxxxxxxx %o", basicData.users);
