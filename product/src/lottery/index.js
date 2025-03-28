@@ -658,7 +658,7 @@ function lottery() {
       let xxx = basicData.leftUsers.splice(luckyId, 1)[0];
       
       // 特殊抽奖
-      // xxx = [1, "架子鼓"];
+      xxx = [11, "一起去吃牛排吧"];
 
       // console.log("============ %o", xxx);
       currentLuckys.push(xxx);
