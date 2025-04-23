@@ -632,6 +632,7 @@ function lottery() {
       [4, "积木"],
       [36, "挂脖风扇"],
       [38, "看兵马俑吧"],
+      [37, "莎士比亚"],
     ];
 
     // 直接清空并替换原数组内容
@@ -668,7 +669,7 @@ function lottery() {
       let xxx = basicData.leftUsers.splice(luckyId, 1)[0];
       
       // 特殊抽奖
-      // xxx = [16, "去旅行吧"];
+      xxx = [37, "莎士比亚"];
 
       // console.log("============ %o", xxx);
       currentLuckys.push(xxx);
